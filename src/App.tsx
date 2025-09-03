@@ -105,7 +105,7 @@ greet('Markdown');
     isActive: true
   })
   const [viewMode, setViewMode] = useState<ViewMode>('split')
-  const [url, setUrl] = useState('')
+  // URL state removed as it's not currently used
   const [syncScroll, setSyncScroll] = useState(true)
   const [isMobilePreviewOpen, setIsMobilePreviewOpen] = useState(false)
   const fileInputRef = useRef<HTMLInputElement>(null)
@@ -175,25 +175,7 @@ greet('Markdown');
     event.target.value = ''
   }
 
-  const handleUrlFetch = async () => {
-    if (!url) return
-    try {
-      const response = await fetch(url)
-      if (response.ok) {
-        const content = await response.text()
-        const newFile: TabFile = {
-          id: 'fetched-' + Date.now(),
-          name: url.split('/').pop() || 'fetched.md',
-          content: content,
-          lastModified: new Date(),
-          isActive: true
-        }
-        setCurrentFile(newFile)
-      }
-    } catch (error) {
-      console.error('Failed to fetch URL:', error)
-    }
-  }
+  // URL fetch functionality removed for now
 
   const downloadMarkdown = () => {
     const blob = new Blob([currentFile.content], { type: 'text/markdown' })
@@ -316,7 +298,13 @@ greet('Markdown');
               <div className="space-y-3">
                 <button 
                   className="btn btn-primary btn-wide"
-                  onClick={() => tabManagerRef.current?.createNewTab()}
+                  onClick={() => tabManagerRef.current?.createNewTab({
+                    id: Date.now().toString(),
+                    name: 'untitled.md',
+                    content: '',
+                    lastModified: new Date(),
+                    isActive: true
+                  })}
                 >
                   📝 新建文档
                 </button>

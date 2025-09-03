@@ -18,7 +18,7 @@ export interface TabManagerRef {
   createNewTab: (file: TabFile) => void
 }
 
-const TabManager = forwardRef<TabManagerRef, TabManagerProps>(({ currentFile, onFileChange, onContentChange }, ref) => {
+const TabManager = forwardRef<TabManagerRef, TabManagerProps>(({ currentFile, onFileChange }, ref) => {
   const [tabs, setTabs] = useState<TabFile[]>([])
   const [activeTabId, setActiveTabId] = useState<string>('')
 

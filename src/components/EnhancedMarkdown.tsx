@@ -115,7 +115,8 @@ const EnhancedMarkdown: React.FC<EnhancedMarkdownProps> = ({
         remarkPlugins={[remarkGfm]}
         rehypePlugins={[rehypeRaw]}
         components={{
-          code: ({ node, inline, className, children, ...props }) => {
+          code: ({ node, className, children, ...props }: any) => {
+            const inline = !className
             if (inline) {
               return (
                 <code className="bg-base-200 px-1 py-0.5 rounded text-sm font-mono" {...props}>
