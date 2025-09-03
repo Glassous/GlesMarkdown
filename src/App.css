@@ -1,0 +1,52 @@
+/* Custom styles for Markdown Editor */
+.markdown-editor {
+  font-family: 'Inter', system-ui, sans-serif;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* 确保主容器不超出视窗高度 */
+#root {
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* 主应用容器 */
+.app-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* 选项卡区域 */
+.tab-area {
+  flex-shrink: 0;
+}
+
+/* 主内容区域 */
+.main-content {
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+}
+
+/* Ensure proper scrolling for editor */
+.editor-textarea {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(155, 155, 155, 0.5) transparent;
+}
+
+.editor-textarea::-webkit-scrollbar {
+  width: 8px;
+}
+
+.editor-textarea::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.editor-textarea::-webkit-scrollbar-thumb {
+  background-color: rgba(155, 155, 155, 0.5);
+  border-radius: 20px;
+  border: transparent;
+}

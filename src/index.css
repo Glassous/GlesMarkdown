@@ -1,0 +1,167 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-sans;
+  }
+}
+
+@layer components {
+  .markdown-body {
+    @apply prose prose-slate max-w-none;
+  }
+  
+  /* Enhanced Markdown Styles */
+  .enhanced-markdown {
+    @apply w-full;
+  }
+  
+  /* Code block enhancements */
+  .enhanced-markdown pre {
+    @apply relative;
+  }
+  
+  /* Responsive design for code blocks */
+  .enhanced-markdown .group {
+    @apply w-full;
+  }
+  
+  /* Mobile responsive adjustments */
+  @media (max-width: 768px) {
+    .enhanced-markdown {
+      @apply text-sm;
+    }
+    
+    .enhanced-markdown h1 {
+      @apply text-2xl;
+    }
+    
+    .enhanced-markdown h2 {
+      @apply text-xl;
+    }
+    
+    .enhanced-markdown h3 {
+      @apply text-lg;
+    }
+    
+    .enhanced-markdown pre {
+      @apply text-xs;
+    }
+  }
+  
+  /* Accessibility improvements */
+  .enhanced-markdown button:focus {
+    @apply ring-2 ring-primary ring-offset-2 outline-none;
+  }
+  
+  .enhanced-markdown a:focus {
+    @apply ring-2 ring-primary ring-offset-2 outline-none rounded;
+  }
+  
+  /* High contrast mode support */
+  @media (prefers-contrast: high) {
+    .enhanced-markdown {
+      filter: contrast(1.5);
+    }
+  }
+  
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    .enhanced-markdown * {
+      @apply transition-none;
+    }
+  }
+  
+  /* Print styles */
+  @media print {
+    .enhanced-markdown button {
+      @apply hidden;
+    }
+    
+    .enhanced-markdown {
+      @apply text-black bg-white;
+    }
+  }
+  
+  /* Legacy markdown-body styles for backward compatibility */
+  .markdown-body h1 {
+    @apply text-3xl font-bold mb-4;
+  }
+  
+  .markdown-body h2 {
+    @apply text-2xl font-semibold mb-3;
+  }
+  
+  .markdown-body h3 {
+    @apply text-xl font-medium mb-2;
+  }
+  
+  .markdown-body p {
+    @apply mb-4 leading-relaxed;
+  }
+  
+  .markdown-body code {
+    @apply bg-base-200 px-1 py-0.5 rounded text-sm;
+  }
+  
+  .markdown-body pre {
+    @apply bg-base-200 p-4 rounded-lg overflow-x-auto;
+  }
+  
+  .markdown-body blockquote {
+    @apply border-l-4 border-primary pl-4 italic;
+  }
+}
+
+/* Tree structure support */
+.enhanced-markdown pre.tree-structure {
+  font-family: 'Courier New', 'Monaco', 'Menlo', monospace;
+  font-size: 0.875rem;
+  line-height: 1.25;
+  white-space: pre;
+  overflow-x: auto;
+}
+
+.enhanced-markdown .tree-structure {
+  background-color: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  font-family: 'Courier New', 'Monaco', 'Menlo', monospace;
+  font-size: 0.875rem;
+  line-height: 1.2;
+  white-space: pre;
+  overflow-x: auto;
+}
+
+/* ASCII tree characters styling */
+.enhanced-markdown .tree-structure .tree-line {
+  color: rgba(55, 65, 81, 0.6);
+}
+
+.enhanced-markdown .tree-structure .tree-folder {
+  color: #f59e0b;
+  font-weight: 500;
+}
+
+.enhanced-markdown .tree-structure .tree-file {
+  color: #374151;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .enhanced-markdown .tree-structure {
+    background-color: #1f2937;
+    border-color: #374151;
+  }
+  
+  .enhanced-markdown .tree-structure .tree-line {
+    color: rgba(209, 213, 219, 0.6);
+  }
+  
+  .enhanced-markdown .tree-structure .tree-file {
+    color: #d1d5db;
+  }
+}
